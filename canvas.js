@@ -8,6 +8,23 @@ canvas.height = innerHeight
 let ctx = canvas.getContext("2d")
 
 
+let mouse = {
+    x: undefined,
+    y: undefined
+}
+
+console.log("here1");
+
+
+window.onload = function () {
+    this.addEventListener('mousemove', (event)=>{
+        mouse.x = event.x
+        mouse.y = event.y
+
+        console.log(mouse);
+    });
+}
+
 class Circle {
     constructor(x, y, dx, dy, radius, color) {
         this.x = x
@@ -23,7 +40,6 @@ class Circle {
         ctx.arc(this.x, this.y, this.radius, Math.PI * 2, false)
         ctx.strokeStyle = "blue"
         ctx.fillStyle = "#000"
-        console.log(this.color)
         ctx.stroke()
         ctx.fill()
     }
@@ -67,8 +83,7 @@ for (let i = 0; i < 100; i++) {
         y,
         dx,
         dy,
-        radius,
-        getRandomColor()
+        radius
     ))
 }
 
